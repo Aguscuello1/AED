@@ -35,7 +35,7 @@ print(selection_sort(v))
 """
 
 #BUSQUEDA SECUENCIAL
-
+""" 
 def linear_search(v,x):
     #test de pertenencia ...
     for i in range(len(v)):
@@ -49,4 +49,28 @@ def linear_search(v,x):
         if x == i:
             return i
         return -1
+    
+ """
+
+
+#BUSQUEDA BINARIA ( mas rapido que la busqueda secuencial)
+""" 
+def binary_search(v,x):
+    #busqueda binaria...asume arreglo ordenado...
+    izq, der = 0, len(v) -1
+    while izq <= der:
+        c = (izq + der) // 2
+        if x == v[c]:
+            return c
+        if x < v[c]:
+            der = c - 1
+        else:
+            izq = c + 1
+    return -1
+ """
+
+#FUSION DE ARREGLOS ORDENADOS
+
+
+
     
