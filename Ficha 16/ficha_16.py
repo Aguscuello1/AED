@@ -70,6 +70,42 @@ def binary_search(v,x):
  """
 
 #FUSION DE ARREGLOS ORDENADOS
+""" 
+#fusion primera parte...
+a = [3,5,7,8]
+b = [2,6,9]
+
+n, m = len(a), len(b)
+t = n + m
+
+#creamos el tercer arrelgo con todos los valores iguales a 0, arreglo de salida...
+c = t * [0]
+
+#aplicamos proceso de fusion...
+i = k = j = 0
+while i < n and j < m:
+    if a[i] < b[i]:
+        c[k] = a[i]
+        i += 1
+    else:
+        c[k] = b [i]
+        j += 1
+    k += 1
+
+
+#fusion segunda parte...
+#apuntar con v al vector que NO termino...
+v, pos = b, j
+
+if i < n:
+    v, pos = a, i
+
+#copiar en el vector c todo lo que quedaba en v...
+while pos < len(v):
+    c[k] = v[pos]
+    pos += 1
+    k +=1 
+"""
 
 
 
