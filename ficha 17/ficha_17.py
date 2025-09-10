@@ -72,18 +72,21 @@ if __name__ == "__main__":
 """
 
 #VECTORES DE CONTEO Y DE ACUMULACION...
-
+""" 
 def test():
     #creamos el vector de conteo...
     n = 100
-    c = n * [0]
+    c = n * [0] #contar cuantas veces entro cada numero...
+    e = n * [0] #acumular la cantidad extraida...
 
     #cargamos y contamos los numeros...
     num = int(input("Ingresar un valor entre 0 y 99 (con -1 se corta): "))
 
     while num != -1:
-        if 0>= num <= 99:
+        if 0>= num <= n:
+            cant = int(input("Ingresar cantidad extraida: "))
             c[num] = c[num] +1
+            e[num] = e[num] + cant
         else:
             print("Error el valor debia ser entre 0 y 99.")
 
@@ -93,9 +96,11 @@ def test():
     print("Resultados...")
     for i in range(n):
         if c[i] != 0:
-            print(f"Numero {[i]} - Frecuencia de aparicion {c[i]}")
+            print(f"Numero {[i]} - Frecuencia de aparicion: {c[i]}")
+            print(f"Dinero acumulado extraido: {e[i]}")
             
 
 if __name__ == "__main__":
-    test()
+    test() 
+"""
 
