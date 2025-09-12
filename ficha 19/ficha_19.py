@@ -41,7 +41,7 @@ e2.antiguedad +=1
 
 
 #REGISTROS: CREACION CON FUNCION DE INICIALIZACION
-
+""" 
 class empleado():
     pass
 
@@ -70,6 +70,13 @@ class empleado:
         self.antiguedad = ant
 
 def test():
-    e1 = empleado(1,"juan","calle 1",1000,10)
-    
+    e1 = empleado(1,"juan","calle 1",1000,10) 
+"""
 
+
+
+
+
+
+
+    
