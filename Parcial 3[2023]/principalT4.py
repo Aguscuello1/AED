@@ -91,7 +91,7 @@ def test():
         print("4. Igual codigo de expediente")
         print("5. Salir")
 
-        op = int(input("Ingresar opcion del menu: "))
+        op = int(input("Ingresar opcion del menu: "))                                                                                                                                
 
         if op == 1:
             #validar
