@@ -37,3 +37,14 @@ n = 3, m = 4
 
 m3 = [[None] * m for f in range(n)] 
 """
+
+#RECORRIDO Y CARGA DE UNA MATRIZ
+
+""" 
+len(a) = la cantidad de filas
+len(a[f]) = la cantidad de columnas
+"""
+
+
+
+
