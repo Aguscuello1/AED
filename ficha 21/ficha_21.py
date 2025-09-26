@@ -45,6 +45,42 @@ len(a) = la cantidad de filas
 len(a[f]) = la cantidad de columnas
 """
 
+""" p = []
+for i in range(3):
+    p.append([])
+    for j in range(2):
+        p[i].append([])
+        for k in range(4):
+            p[i][j].append([])
 
+p[2][1][3] = 'Prueba'
+print(p) """
 
+""" 
+def test(mat):
+    fils = len(mat)
+    cols = len(mat[0])
+    for k in range(cols):
+        ac = 0
+        for g in range(fils):
+            ac += mat[k][g]
+        p = ac / fils
+        print('Indice:', k, '- Promedio:', p)
 
+test(mat = [[]]) 
+"""
+
+def test(mat):
+    n = len(mat)
+    m = len(mat[0])
+
+    r = m * [0]
+    for i in range(m):
+        ac = 0
+        for j in range(n):
+            ac += mat[j][i]
+        r[i] = ac / n
+
+    return r
+
+test(mat = [1])

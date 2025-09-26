@@ -1,7 +1,7 @@
 from soporte import * 
 import random
 
-
+#funciones
 def validar_pos(mensaje):
     n = 0
     while n <= 0:
@@ -28,6 +28,30 @@ def mostar_vector(tickets):
     for i in range(len(tickets)):
         write(tickets[i])
 
+def matriz(tickets):
+    mat = [0] * 2
+    for i in range(len(mat)):
+        mat[i] = [0] * 3
+    
+    for i in range(len(tickets)):
+        fila = tickets[i].tipo
+        col = tickets[i].estado
+
+        mat[fila][col] +=1
+
+    for i in range(len(mat)):
+        for j in range(len(mat[i])):
+            if mat[i][j] != 0:
+                print("Tipo ", i, "- Estado ", j, "- Cantidad ", mat[i][j])
+
+def buscar(tickets,x):
+    for i in range(len(tickets)):
+        if x == tickets[i].numero:
+            return i
+    return -1
+
+
+#funcion principal
 def principal():
     n = validar_pos("Ingrese la cantidad de tickets del mes: ")
     tickets = [None] * n
@@ -52,12 +76,35 @@ def principal():
                 mostar_vector(tickets)
             else:
                 print("Primero debe cargar los datos...")
+                print()
+        elif op == 3:
+            if carga:
+                matriz(tickets)
+            else:
+                print("Primero debe cargar los datos...")
+                print()
+        elif op == 4:
+            if carga:
+                x = int(input("Ingrese el numero de tickets a buscar: "))
+                pos = buscar(tickets,x)
+                if pos == -1:
+                    print("No se ha encontrado el ticket buscado")
+                else:
+                    tickets[pos].estado = 2
+                    write(tickets[pos])
+
+
+            else:
+                print("Primero debe cargar los datos...")
+                print()
+
+
         elif op == 5:
             print("Adios")
         else:
             ("Opcion incorrecta...")
 
 
-
+#ejecucion de funcion principal
 if __name__ == "__main__":
     principal()
