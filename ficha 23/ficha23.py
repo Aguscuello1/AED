@@ -34,6 +34,7 @@ print(nombre, edad)
 
 #EJEMPLO
 
+""" 
 import pickle
 
 class Libro:
@@ -70,5 +71,15 @@ def test():
     display(lib3)
 
 if __name__ == "__main__":
-    test()
+    test() 
+"""
+
+#RECORRIDO Y LECTURA SECUENCIAL DE UN ARCHIVO DE RESGISTROS
+
+
+
+
+
+
+
 
