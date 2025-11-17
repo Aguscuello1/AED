@@ -1,6 +1,7 @@
 import os.path
 import random
 import clase_t2
+import pickle
 
 #funciones
 def menu():
@@ -70,9 +71,66 @@ def mostrar(v):
         print(v[i])
     print()
 
+def binaria(v, isb):
+    n = len(v)
+    izq, der = 0, n - 1
+    while izq <= der:
+        c = (izq + der) // 2
+        if isb == v[c].isbn:
+            return c
+        
+        if isb < v[c].isbn:
+            der = c - 1
+        else:
+            izq = c + 1
+
+    return -1
+
+def buscar(v):
+    isb = int(input("ISBN a buscar: "))
+    pos = binaria(v, isb)
+    if pos != -1:
+        print("Encontrado!")
+        print(v[pos])
+        if v[pos].cod_idioma == 4:
+            d = (22 * v[pos.precio]) // 100
+            v[pos].precio -= d
+            print("Datos cambiados: ")
+            print(v[pos].precio)
+    else:
+        print("No contamos cone el libro", isb, "pero vuelva, pleaseeee!")
+    print()
 
 
-    
+
+def grabar(v, fd):
+    m = open(fd, "wb")
+    a = int(input("Buscar autor..."))
+    p = float(input("Buscar por precio..."))
+
+    for i in range(len(v)):
+        if v[i].autor == a and v[i].precio <= p:
+            pickle.dump(v[i], m)
+
+    m.close()
+    print("Ya se ha creado el archivo...")
+    print()
+
+
+def mostrar_archivo(fd):
+    c = 0
+    t = os.path.getsize
+    m = open(fd, "rb")
+
+    while m.tell() < t:
+        r = pickle.load(m)
+        c += 1
+        print(r)
+    m.close()
+
+    print("Cantidad de libros que contamos: ", c)
+    print()
+
 
 #funcion principal
 def principal():
@@ -85,18 +143,35 @@ def principal():
 
         if op == 1:
             v = cargar_arreglo()
+
         elif op == 2:
-            mostrar(v)
+            if v:
+                mostrar(v)
+            else:
+                print("El arreglo no se ha cargado...")
+
         elif op == 3:
-            pass
+            if v:
+                buscar(v)
+            else:
+                print("El arreglo no se ha cargado...")
+
         elif op == 4:
-            pass
+            if v:
+                grabar(v, fd)
+            else:
+                print("El arreglo no se ha cargado...")
+
         elif op == 5:
-            pass
+            if os.path.exists:
+                mostrar_archivo(fd)
+            else:
+                print("No existe el archivo...")
+
         elif op == 6:
             print("Saliste del programa...")
     
-
 #ejecucion de la funcion principal
 if __name__ == "__main__":
     principal()
+
